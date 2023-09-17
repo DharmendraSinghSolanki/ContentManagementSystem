@@ -1,0 +1,46 @@
+
+<div style="margin-left: 390px;">
+   
+    <form (ngSubmit)="onSubmit(contentForm)" #contentForm ="ngForm" >
+        <h2>Post New Content</h2>
+        <mat-form-field>
+            <input type="text" matInput name="postId" placeholder="postId"  [(ngModel)]="addContent.postId">
+         </mat-form-field> <br>
+        <mat-form-field>
+            <input type="text" matInput name="title" #title="ngModel" placeholder="Content Title" [(ngModel)]="addContent.title" minlength="5" required>
+            <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                ​<div *ngIf="title?.errors?.['required']">
+                   Title Name is required​
+                </div>
+               <div *ngIf="title?.errors?.['minlength']">
+                   Title Minimum Length is 5
+               </div>​
+           </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input type="text" matInput name="content" #content="ngModel" [(ngModel)]="addContent.content" placeholder="Post Content" required minlength="5" >
+            <div *ngIf="content?.invalid && (content?.dirty || content?.touched)">
+               <div *ngIf="content?.errors?.['required']">
+               Content name is required
+               </div>
+               <div color="danger" *ngIf="content?.errors?.['minlength']">
+               Content Minimum Length is 5
+               </div>
+           </div>
+        </mat-form-field><br>
+        <mat-form-field>
+           <input type="text" matInput name="postedOn" placeholder="postedOn"  [(ngModel)]="addContent.postedOn">
+        </mat-form-field> <br>
+        <mat-form-field>
+            <input type="text" matInput name="postedBy" placeholder="postedBy"  [(ngModel)]="addContent.postedBy">
+         </mat-form-field> 
+        <br>
+         <button mat-raised-button color="accent" type="submit" [disabled]="contentForm.invalid">Save
+         </button>​
+    </form>
+   
+   
+    
+   
+   

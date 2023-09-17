@@ -1,0 +1,27 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field id="formfield" appearance="outline">
+        <input matInput type="email" placeholder="Email" name="email" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+            Email is required.
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+            Email valid email address.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <input matInput type="text" placeholder="Password" name="password" formControlName="password">
+        <mat-error *ngIf="password.hasError('required')">
+            Password is required.
+        </mat-error>
+        <mat-error *ngIf="password.hasError('pattern')">
+            Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+            and a number.
+        </mat-error>
+    </mat-form-field>
+    <br><a routerLink="../register">
+    <button mat-raised-button  color="accent" style="margin-left: 20px;">New_User?</button></a>
+    <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="accent" style="margin-left: 20px;">Login</button>
+    
+</form>

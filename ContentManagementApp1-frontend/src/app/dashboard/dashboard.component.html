@@ -1,0 +1,34 @@
+<div id="post"><h2>Click To Post Content.</h2>
+<a routerLink="addContent"><button class="button-3" role="button">Post Content</button>
+</a></div>
+
+<div class="container">
+  <div class="row">
+    <div
+      class="col-lg-3 m-2 p-3 mb-5 rounded"
+      (ngModel)="(content.postId)"
+      *ngFor="let content of contents"
+    >
+      <mat-card class="example-card">
+        <mat-card-title>{{ content.title }} </mat-card-title>
+        <mat-card-content>
+          <p class="text-center">{{ content.content }}</p>
+          <p class="text-center">{{ content.postedOn }}</p>
+          <p class="text-center">{{ content.postedBy }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink="../edit-content/{{ content.postId }}">
+            <button color="warn" mat-icon-button>
+              Edit
+            </button></a
+          ><a routerLink="../edit-content/{{ content.postId }}">
+            <button color="accent" mat-icon-button>
+             Delete
+            </button></a
+          >
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<h1>dashboard</h1>

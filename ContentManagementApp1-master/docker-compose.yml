@@ -1,0 +1,62 @@
+version:  '3.9'
+services:
+
+  contentmanagement-service:
+    container_name: contentmanagement-service
+    build:  ContentManagementService/
+    restart:  always
+    network_mode: user-network
+    ports:
+      - 8083:8083
+    depends_on:
+      - mongoService
+      - apigateway
+      - eureka-service
+
+  mongoService:
+    image:  mongo
+    container_name: mongoService
+    ports:
+      - 27017:27017
+    network_mode: user-network
+
+  authenticationService:
+    image:  authentication_image
+    container_name: authenticationService
+    build:  authentication/
+    restart:  always
+    network_mode: user-network
+    ports:
+      - 8092:8092
+    depends_on:
+      - mysqlService
+      - apigateway
+      - eureka-service
+
+  mysqlService:
+    image:  mysql:latest
+    container_name: mysqlService
+    network_mode: user-network
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  apigateway:
+    container_name: apigateway
+    build: ApiGateWay/
+    network_mode: user-network
+    ports:
+      - 9002:9002
+
+  eureka-service:
+    container_name: eureka-service
+    build: EurekaServer/
+    restart: always
+    network_mode: user-network
+    ports:
+      - 8761:8761

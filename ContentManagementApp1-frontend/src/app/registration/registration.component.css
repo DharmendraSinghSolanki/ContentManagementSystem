@@ -1,0 +1,14 @@
+form{
+    /* padding: 99px;*/
+    margin-left: 400px; 
+    margin-top: 50px;
+    position: relative;
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(143, 139, 139);
+  
+}

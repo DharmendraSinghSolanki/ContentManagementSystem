@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  mat-toolbar{
+    color: rgb(93, 56, 128);
+    background-color: rgb(184, 232, 178);
+    font-style: italic;
+    font-size:x-large;
+  }
+ 
+ 

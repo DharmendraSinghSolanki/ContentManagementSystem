@@ -1,0 +1,23 @@
+.input-field{
+    width: 90%;
+}
+/* .card-content{
+    /* margin-left:250px;
+    margin-right: 250px;
+    background-color: rgb(220, 209, 193); 
+} */
+
+form{
+    /* padding: 99px;*/
+    margin-left: 400px; 
+    margin-top: 50px;
+    position: relative;
+    width: 350px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px rgb(143, 139, 139);
+  
+}

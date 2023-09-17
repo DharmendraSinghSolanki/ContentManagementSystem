@@ -1,0 +1,59 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <mat-form-field  appearance="outline">
+        <input matInput type="text" placeholder="Full Name" name="fullName" id="fullName"
+            formControlName="fullName">
+        <mat-error *ngIf="fullName.hasError('required')">
+            Full Name is required.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <input matInput type="email" placeholder="Email" name="email" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+            Email is required.
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+            Email valid email address.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <input matInput type="text" placeholder="Password" name="password" formControlName="password">
+        <mat-error *ngIf="password.hasError('required')">
+            Password is required.
+        </mat-error>
+        <mat-error *ngIf="password.hasError('pattern')">
+            Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+            and a number.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <input matInput type="text" placeholder="Confirm Password" name="confirmPassword"
+            formControlName="confirmPassword">
+            <mat-error *ngIf="!registrationForm.hasError('mustMatchValidator')">
+            Password and Confirm Password should match.
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <input matInput type="tel" placeholder="Phone Number" name="phoneNumber" formControlName="phoneNumber">
+        <mat-error *ngIf="phoneNumber.hasError('required')">
+            Phone Number is required.
+        </mat-error>
+        <mat-error *ngIf="phoneNumber.hasError('pattern')">
+            Valid Phone Number contain 10 digits starting with 7/8/9
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field  appearance="outline">
+        <input matInput type="text" placeholder="Address" name="address" formControlName="address">
+        <mat-error *ngIf="address.hasError('required')">
+            Address is required.
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <button mat-raised-button type="reset" color="accent" style="margin-left: 20px;">Reset</button>
+    <button mat-raised-button type="submit" [disabled]="!registrationForm.valid" color="accent" style="margin-left: 20px;">Submit</button>
+</form>

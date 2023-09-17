@@ -1,0 +1,31 @@
+
+
+<mat-card mat-ripple class="card-content">
+    <mat-card-content>
+        <form id="edit-form" >
+            <mat-form-field class="input-field" appearance="legacy">
+                <mat-label>Post Title</mat-label>
+                <input matInput [(ngModel)]="content.title" name="title" type="text" >
+            </mat-form-field> <br>
+            <mat-form-field class="input-field" appearance="legacy">
+                <mat-label>Post Content</mat-label>
+                <input matInput [(ngModel)]="content.content" name="content" type="text" >
+            </mat-form-field><br>
+            <mat-form-field class="input-field" appearance="legacy">
+                <mat-label>PostedOn</mat-label>
+                <input matInput [(ngModel)]="content.postedOn" name="postedOn" type="text" >
+            </mat-form-field><br>
+            <mat-form-field class="input-field" appearance="legacy">
+                <mat-label>PostedBy</mat-label>
+                <input matInput [(ngModel)]="content.postedBy" name="postedBy" type="text" >
+            </mat-form-field>
+            <mat-card-actions>
+                <button color="accent" mat-icon-button (click)="editNote()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button color="accent" mat-icon-button (click)="deleteNote()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
